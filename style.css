@@ -9,3 +9,17 @@ main[data-view="services"]>#home,main[data-view="services"]>.service-strip,main[
 .detail button{border:0;background:none;padding:8px 0;display:block;color:#3d7526;text-decoration:underline;text-align:right;font-size:14px}
 
 .file-group-label,.section h2.gl{font-family:Arial,sans-serif;font-size:28px;font-weight:700;margin:0;line-height:1.3}.nav button{color:#fff}[hidden]{display:none!important}
+
+main[data-view="services"]>#repair,main[data-view="services"]>#sales,main[data-view="services"]>#faq{display:none}
+main[data-view="business"]>#repair,main[data-view="business"]>#sales,main[data-view="business"]>#faq{display:none}
+main[data-view="contact"]>#repair,main[data-view="contact"]>#sales,main[data-view="contact"]>#faq{display:none}
+main[data-view="repair"]>*:not(#repair):not(#contact){display:none}
+main[data-view="sales"]>*:not(#sales):not(#contact){display:none}
+main[data-view="faq"]>*:not(#faq):not(#contact){display:none}
+.pg .eyebrow{margin:0 0 6px}.rgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0 0 24px}
+.rs{padding:20px;border:1px solid #e0e7dd;border-radius:10px;background:#fff;min-width:0}.rs h3{font-size:17px;margin:0 0 6px}.rs p{font-size:14px;color:#59665d;margin:0}
+.faqs details{border:1px solid #e0e7dd;border-radius:10px;background:#fff;padding:14px 18px;margin:0 0 10px}.faqs summary{cursor:pointer;font-weight:700}.faqs p{color:#59665d;margin:10px 0 0;font-size:15px}
+.area{color:#5b675f;margin:0 0 20px;font-size:15px}
+.nav{flex-wrap:wrap}
+@media(max-width:900px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.rgrid{grid-template-columns:1fr}}
