@@ -122,4 +122,8 @@ mt.addEventListener('click',function(){var o=nav.classList.toggle('open');mt.set
 
 <script>
 document.addEventListener('click',function(e){var f=e.target.closest('.pcatf-b');if(!f)return;var c=f.getAttribute('data-pcat');document.querySelectorAll('.pcatf-b').forEach(function(x){var on=x===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});document.querySelectorAll('.prod[data-pcat]').forEach(function(s){s.hidden=!(c==='הכול'||s.getAttribute('data-pcat')===c)})});
-</script></body></html>
+</script>
+<!-- Netcomp metrics: consent-gated, aggregate-only. Prepared for activation - requires explicit owner approval to go live. -->
+<script>window.NC_METRICS_ENDPOINT='https://netcomp-metrics.amir-netcomp.workers.dev/e';</script>
+<script src="/nc-metrics.js" defer></script>
+</body></html>
