@@ -27,6 +27,7 @@
     if (consent() !== 'accepted' || isBot() || !ENDPOINT) return;
     params = params || {};
     var body = { e: name, view: currentView(), page: cleanPath() };
+    try { if (document.referrer) body.ref = new URL(document.referrer).origin; } catch (e) {} // origin only: no path/query/identity
     if (params.channel) { body.channel = params.channel; body.loc = params.loc; if (params.model) body.model = params.model; }
     if (params.cat) body.cat = params.cat;
     if (campaign) body.utm = campaign;
