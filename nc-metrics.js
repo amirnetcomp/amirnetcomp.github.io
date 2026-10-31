@@ -17,7 +17,7 @@
   function once(key, ms) { var t = Date.now(); if (lastFire[key] && t - lastFire[key] < ms) return false; lastFire[key] = t; return true; }
   function sectionOf(el) { var s = el.closest('section,[id]'); return s && s.id ? s.id : 'unknown'; }
   function modelOf(el) {
-    var card = el.closest('.product-card,[data-model]');
+    var card = el.closest('.product-card,.prod,[data-model]');
     if (!card) return null;
     var m = card.querySelector('.model,[data-model],h3,h4');
     return m ? m.textContent.trim().slice(0, 80) : null;
@@ -28,7 +28,8 @@
     params = params || {};
     var body = { e: name, view: currentView(), page: cleanPath() };
     try { if (document.referrer) body.ref = new URL(document.referrer).origin; } catch (e) {} // origin only: no path/query/identity
-    if (params.channel) { body.channel = params.channel; body.loc = params.loc; if (params.model) body.model = params.model; }
+    if (params.channel) { body.channel = params.channel; body.loc = params.loc; }
+    if (params.model) body.model = params.model;
     if (params.cat) body.cat = params.cat;
     if (campaign) body.utm = campaign;
     if (TEST) body.test = true;
@@ -62,6 +63,15 @@
     if (mail && once('mail|' + sectionOf(mail) + '|' + (modelOf(mail) || ''), 800) && onceEl(mail, 800)) send('contact_click', { channel: 'email', loc: sectionOf(mail), model: modelOf(mail) });
     var f = e.target.closest('.filter');
     if (f && onceEl(f, 400)) send('catalog_filter', { cat: (f.getAttribute('data-cat') || '').slice(0, 40) });
+    var pf = e.target.closest('.pcatf-b');
+    if (pf && onceEl(pf, 400)) send('catalog_filter', { cat: (pf.getAttribute('data-pcat') || '').slice(0, 40) });
+    // Quote buttons are NOT contact channels: they navigate to the contact view. Count as product interest with the card's model name.
+    var pi = e.target.closest('.prod button[data-go="contact"]');
+    if (pi && onceEl(pi, 800)) {
+      var card = pi.closest('.prod');
+      var h = card && card.querySelector('h3');
+      send('product_interest', { model: h ? h.textContent.trim().slice(0, 80) : null });
+    }
   }, true);
   // consent banner (RTL Hebrew), shown only when no stored choice; default = no measurement
   var bannerEl = null;
