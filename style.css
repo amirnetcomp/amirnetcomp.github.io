@@ -23,3 +23,15 @@ main[data-view="faq"]>*:not(#faq):not(#contact){display:none}
 .nav{flex-wrap:wrap}
 @media(max-width:900px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.rgrid{grid-template-columns:1fr}}
+
+.prods-title{font-size:20px;margin:0 0 14px}
+.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 32px}
+.prod{border:1px solid #e0e7dd;border-radius:10px;background:#fff;overflow:hidden;min-width:0}
+.prod img{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;background:#fff}
+.prod-body{padding:20px}
+.prod h3{font-size:19px;margin:0 0 2px;text-align:right}
+.prod-sub{color:#59665d;font-size:14px;margin:0 0 8px;text-align:right}
+.prod-sku{font-size:13px;font-weight:700;color:#3d7526;margin:0 0 12px}
+.prod ul{margin:0 0 12px;padding:0 20px 0 0;font-size:14px;color:#333}
+.prod-war{font-size:13px;color:#59665d;margin:0 0 16px}
+@media(max-width:767px){.prods{grid-template-columns:1fr}}
