@@ -112,7 +112,12 @@ img{max-width:100%}
 <article class="person"><div><h3>תמיכה מרחוק ללקוחות Windows</h3><p>הצטרפות לניהול ולתמיכה מרחוק דרך Atera.</p></div><a class="cta primary" href="http://support.netcomp.co.il/api/utils/agent-install/windows/?cid=75&amp;aeid=5de08654183e4a7cbe9366417f858e3e" target="_blank" rel="noopener noreferrer">הצטרפות לניהול מרחוק <span aria-hidden="true">↗</span></a></article>
 </div></section>
 </main>
-<footer><span dir="ltr" class="footer-brand">netcomp<span>.</span></span><span>פתרונות מחשוב לעסקים</span><button data-go="home">לראש העמוד ↑</button></footer>
+<footer><span dir="ltr" class="footer-brand">netcomp<span>.</span></span><span>פתרונות מחשוב לעסקים</span><button data-go="home">לראש העמוד ↑</button><details id="privacy-note" style="width:100%;margin-top:10px;font-size:13px;opacity:.85">
+<summary style="cursor:pointer">פרטיות ומדידה</summary>
+<p style="margin:8px 0;line-height:1.6">מדידת שימוש עצמאית ואנונימית (לא Google Analytics), פעילה רק לאחר הסכמתך: עמודים ומבטים, מקור הגעה וקמפיין, סוג מכשיר ודפדפן, ולחיצות על כפתורי וואטסאפ/טלפון/מייל כולל מיקום הכפתור. לחיצה אינה פנייה שהתקבלה. לא נאספים הקלדות, תוכן אישי או כתובת IP מלאה. הנתונים נשמרים עד חודשיים ונמחקים אוטומטית. לשאלות: <a href="mailto:aviram@netcomp.co.il" style="color:inherit">aviram@netcomp.co.il</a></p>
+<button type="button" onclick="try{localStorage.removeItem('nc-consent-v1')}catch(e){};location.reload()" style="padding:6px 14px;border-radius:8px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;font-size:13px">ביטול הסכמה למדידה</button>
+</details>
+</footer>
 </div>
 <script>
 var main=document.getElementById('main'),nav=document.getElementById('nav'),mt=document.getElementById('mt');
@@ -122,4 +127,8 @@ mt.addEventListener('click',function(){var o=nav.classList.toggle('open');mt.set
 
 <script>
 document.addEventListener('click',function(e){var f=e.target.closest('.pcatf-b');if(!f)return;var c=f.getAttribute('data-pcat');document.querySelectorAll('.pcatf-b').forEach(function(x){var on=x===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});document.querySelectorAll('.prod[data-pcat]').forEach(function(s){s.hidden=!(c==='הכול'||s.getAttribute('data-pcat')===c)})});
-</script></body></html>
+</script>
+<!-- Netcomp metrics: consent-gated, aggregate-only. Prepared for activation - requires explicit owner approval to go live. -->
+<script>window.NC_METRICS_ENDPOINT='https://netcomp-metrics.amir-netcomp.workers.dev/e';</script>
+<script src="/nc-metrics.js" defer></script>
+</body></html>
