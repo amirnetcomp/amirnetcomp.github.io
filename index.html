@@ -63,7 +63,8 @@
 var main=document.getElementById('main'),nav=document.getElementById('nav'),mt=document.getElementById('mt');
 function go(v){main.setAttribute('data-view',v);nav.classList.remove('open');mt.setAttribute('aria-expanded','false');window.scrollTo(0,0)}
 document.addEventListener('click',function(e){var b=e.target.closest('[data-go]');if(b){go(b.getAttribute('data-go'))}var f=e.target.closest('.filter');if(f){var c=f.getAttribute('data-cat');document.querySelectorAll('.filter').forEach(function(x){var on=x===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});document.querySelectorAll('.service').forEach(function(s){s.hidden=!(c==='הכול'||s.getAttribute('data-cat')===c)})}});
-mt.addEventListener('click',function(){var o=nav.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
+mt.addEventListener('click',function(){var o=nav.classList.toggle('open');mt.setAttribute('aria-expanded',o)});</script>
+
 <script>
 document.addEventListener('click',function(e){var f=e.target.closest('.pcatf-b');if(!f)return;var c=f.getAttribute('data-pcat');document.querySelectorAll('.pcatf-b').forEach(function(x){var on=x===f;x.classList.toggle('active',on);x.setAttribute('aria-pressed',on)});document.querySelectorAll('.prod[data-pcat]').forEach(function(s){s.hidden=!(c==='הכול'||s.getAttribute('data-pcat')===c)})});
 </script></body></html>
